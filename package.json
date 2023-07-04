@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server-json": "json-server --watch student.json --port 8000"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
