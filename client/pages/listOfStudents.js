@@ -22,27 +22,27 @@ export default function ListOfStudents({studentCpE}) {
     }
     
     async function DeleteData(studentId){
-        const res = await fetch(`http://localhost:3000/api/delete`, {
-            method: "DELETE",
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
-          });
-        const data = res.json()
+        // const res = await fetch(`http://localhost:3000/api/delete`, {
+        //     method: "DELETE",
+        //     headers: { 'Content-Type': "application/json" },
+        //     body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
+        //   });
+        // const data = res.json()
         
-        window.alert("Deleted")
-        GetData()
+        // window.alert("Deleted")
+        // GetData()
     }
     async function DeleteAll(){
-        const res = await fetch(`http://localhost:3000/api/delete/${studentId}`, {
-            method: "DELETE",
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
-          });
+    //     const res = await fetch(`http://localhost:3000/api/delete/${studentId}`, {
+    //         method: "DELETE",
+    //         headers: { 'Content-Type': "application/json" },
+    //         body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
+    //       });
           
-      //  const data = res.json()
+    //   //  const data = res.json()
         
-        window.alert("Deleted All")
-        GetData()
+    //     window.alert("Deleted All")
+    //     GetData()
     }
 
     function getStud(stud){
@@ -99,7 +99,7 @@ export default function ListOfStudents({studentCpE}) {
         
         { 
             student.map(stud=>(
-                <section className=' grid grid-cols-4 p-3  w-70  md:w-full' key= {stud.id}>
+                <section className=' grid grid-cols-4 p-3  w-70  md:w-full' key= {stud._id}>
                 <p className='p-1 md:p-3 w-1/2 col-span-2'>{stud.name}</p>
                 <p className=' p-1 md:p-3 w-1/2 col-span-1'>{stud.number}</p>
                 <section className='flex flex-row  md:ml-2 md:col-span-1'>
@@ -157,12 +157,15 @@ export default function ListOfStudents({studentCpE}) {
 
 //or for calling our mongodb api
 export async function getServerSideProps(){
-    
-    const res = await fetch ("http://localhost:3000/api/studentdb");
+    let collectionName = "English"; //we will send this as req.query.collection 
+    const res = await fetch (`http://localhost:3000/api/studentdb?collection=${collectionName}`, { 
+        method:"GET"   
+    });
+    //       
     const data = await res.json();
     //we need to stringify the data from json
     return {
-        props: { studentCpE: data },
+        props: { studentCpE: data }
     };
 
 }
