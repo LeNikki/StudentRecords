@@ -33,7 +33,7 @@ export default function Home() {
         />
          
         <section className='w-2/5 '>
-          <h1 className='text-center mb-2 bg-red-300 bg-white p-4 rounded-md'>Choose Class Subject</h1>
+          <h1 className='text-center mb-2 bg-red-300 p-4 rounded-md'>Choose Class Subject</h1>
           <ul className='bg-white p-4 rounded-md shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]'>
             <li className='text-slate-500 hover:text-slate-800 hover:font-bold'>English for daily use </li>
             <hr className=' h-1 bg-slate-500' />

@@ -2,6 +2,8 @@ import React from 'react'
 import Layout from "../components/layout"
 import Head from "next/head"
 import { useState,  } from 'react'
+import search_ic from "../public/search_ic.png"
+import Image from "next/image"
 //import clientPromise from '@/lib/mongodb'
 import { Alumni_Sans_Collegiate_One } from 'next/font/google'
 
@@ -81,30 +83,51 @@ export default function AddNew({studentProp}) {
   return (
     <Layout>
         <Head><title>Add New</title></Head>
+        <section className='bg-violet-400 w-full p-2  flex flex-row justify-between items-center rounded-md'>
+            <p className='ml-4'>Please fill-up the form  below</p>
+            <section className='w-1/4 flex flex-row justify-around '>
+            <input
+                type="text"
+                className='p-1 w-3/4 rounded-md border border-slate-700 focus:outline-red-400'
+            />
+            <section className='w-10 h-10 pt-2'>
+            <Image
+              src= {search_ic}
+              
+            /></section>
+             </section>
+        </section>
         <form action ="/addNew" method = "POST" className=' flex flex-col'>
         
            <fieldset className='flex flex-row my-2'>
-           <label  className='font-semibold py-2 px-3 w-30 md:w-60'>Please enter name: </label>
+           <label  className='font-semibold py-2 px-3 w-60 '>Please enter name: </label>
             <input type = "text"
                 name = "name"
                 id = "student_name"
                 value= {studInfo.name}
                 onChange = {setName}
-                className=' appearance-none focus:drop-shadow-xl border-2 border-slate-300 rounded w-30 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-30 md:w-40'
+                className=' w-1/4 appearance-none focus:drop-shadow-xl border-2 border-slate-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-30'
             />
             </fieldset>
             <fieldset  className='flex flex-row my-2'>
-             <label  className='font-semibold py-2 px-3 md:w-60 ' >Please enter number: </label>
+             <label  className='font-semibold py-2 px-3 w-60 ' >Please enter number: </label>
              <input type ="number"
                 name = "number"
                 id = "student_num"
                 value={studInfo.num}
                 onChange = {setNum}
-                className=' appearance-none focus:drop-shadow-xl border-2 border-slate-300 rounded w-30 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-30 md:w-40'
+                className='w-1/4 appearance-none focus:drop-shadow-xl border-2 border-slate-300 rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-30'
                 required
                min="10"
                 maxLength="20"
             />
+            </fieldset>
+            <fieldset  className='flex flex-row my-2'>
+             <label  className='font-semibold py-2 px-3 md:w-60 ' >Choose Subject: </label>
+             <select name="subjects" className='rounded-md border border-2 border-slate-300 p-2'>
+                <option value="volvo">English for daily use</option>
+                <option value="saab">Emerging Technologies</option>
+              </select>
             </fieldset>
             <fieldset className='flex flex-row px-3 py-2'>
                 <button  onClick= {newData} type ="submit" value="submit" className='mr-2 py-2 px-3 drop-shadow-md border border-solid border-slate-400 rounded w-30  bg-none  hover:bg-red-500'>Submit</button>

@@ -3,6 +3,9 @@ import Layout from "../components/layout"
 import Link from "next/link"
 import Head from "next/head"
 import { useState } from 'react'
+import search_ic from "../public/search_ic.png"
+import trash from "../public/trash.png"
+import Image from "next/image"
 //import clientPromise from "../lib/mongodb";
 //import { getServerSideProps } from './addNew'
 
@@ -12,77 +15,97 @@ export default function ListOfStudents({studentCpE}) {
     const [student, setstudent] = useState(studentCpE);
     const [selectAll, setselectAll] = useState(false);
     
-    //Get API req, loads new data when edited or deletd
-    // async function GetData(){
-    //     const res = await fetch("http://localhost:8000/students")
-    //     const data = await res.json()
-    //     setstudent(data)
-    //     console.log("getting...")
-    // }
+  //  Get API req, loads new data when edited or deletd
+     function GetData(){
+        setstudent(studentCpE)
+        console.log("getting...")
+    }
     
-    // async function DeleteData(studentId){
-    //     const res = await fetch(`http://localhost:8000/students/${studentId}`,{
-    //         method: "DELETE"
-    //     })
-    //     const data = res.json()
+    async function DeleteData(studentId){
+        const res = await fetch(`http://localhost:3000/api/delete`, {
+            method: "DELETE",
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
+          });
+        const data = res.json()
         
-    //     window.alert("Deleted")
-    //     GetData()
-    // }
-    // async function DeleteAll(){
-    //     const allId=student.map(stud=>stud.id);
-    //     console.log(allId)
-    //     for (var i=0; i<allId.length; i++){
-    //         var studId = allId[i];
-    //         const res = await fetch(`http://localhost:8000/students/${studId}`,{
-    //         method: "DELETE"
-    //     })
-    //     }
-    //   //  const data = res.json()
+        window.alert("Deleted")
+        GetData()
+    }
+    async function DeleteAll(){
+        const res = await fetch(`http://localhost:3000/api/delete/${studentId}`, {
+            method: "DELETE",
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
+          });
+          
+      //  const data = res.json()
         
-    //     window.alert("Deleted All")
-    //     GetData()
-    // }
+        window.alert("Deleted All")
+        GetData()
+    }
 
     function getStud(stud){
         console.log("update")
         prevInfo = stud
     }
-    // function deleteAll(){
-    //     const deleteAll = window.confirm("Are you sure you want to DELETE all data? This cannot be undone.");
-    //     if(deleteAll){
-    //         DeleteAll()
-    //         GetData()
-    //     }
-    // }
+    function deleteAll(){
+        const deleteAll = window.confirm("Are you sure you want to DELETE all data? This cannot be undone.");
+        if(deleteAll){
+            // DeleteAll()
+            // GetData()
+        }
+    }
    
    
 
   return (
-    <Layout>
+    <div className='bg-slate-200 '>
+    <Layout >
         
         <Head><title>List of students</title></Head>
-    <div className='flex justify-center items-center flex-col bg-slate-300 mr-5 '>
-        <section className='flex flex-row justify-around items-center w-40 h-10 bg-yellow-500'>
+        <section className='bg-violet-400 w-full p-2  flex flex-row justify-between items-center rounded-md'>
+            <p className='ml-4'>Subject Name</p>
+            <section className='w-1/4 flex flex-row justify-around '>
             <input
-            type="checkbox"
-            id="selectAll"
-            checked={selectAll}
-            onChange={()=>setselectAll(!selectAll)}
+                type="text"
+                className='p-1 w-3/4 rounded-md border border-slate-700 focus:outline-red-400'
             />
-            { selectAll? <button onClick={deleteAll} className='bg-red-400 h-10 p-2'>Delete All?</button> : <p>Select All</p> }
-         </section>
+            <section className='w-10 h-10 pt-2'>
+            <Image
+              src= {search_ic}
+              
+            /></section>
+             </section>
+        </section>
+    <div className='flex justify-center items-center flex-col bg-white mr-5 mt-5 w-full rounded-md shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]'>
+        
 
-
+      
+         <section className=' grid grid-cols-4 p-3  w-70  md:w-full'>
+                <p className='p-1 md:p-3 w-1/2 col-span-2 font-bold'>Student Name</p>
+                <p className=' p-1 md:p-3 w-1/2 col-span-1 font-bold'>Student Number</p>   
+                <section className='items-center w-50 h-10 flex flex-row justify-around '>
+                
+                { selectAll? <button onClick={deleteAll} className='bg-red-400 h-10 p-2 w-40 flex flex-row justify-around'> <Image src= {trash} width={20} height = {20}></Image>Delete All?</button> : <p>Select All</p> }
+                <input
+                    type="checkbox"
+                    id="selectAll"
+                    checked={selectAll}
+                    onChange={()=>setselectAll(!selectAll)}
+                />
+                </section>      
+            </section>
+        
         { 
             student.map(stud=>(
-                <section className=' grid grid-cols-4  bg-cyan-300 w-70  md:w-3/4' key= {stud.id}>
-                <p className='bg-red-100 p-1 md:p-3  col-span-2'>{stud.name}</p>
-                <p className='bg-yellow-100 p-1 md:p-3 col-span-1'>{stud.number}</p>
+                <section className=' grid grid-cols-4 p-3  w-70  md:w-full' key= {stud.id}>
+                <p className='p-1 md:p-3 w-1/2 col-span-2'>{stud.name}</p>
+                <p className=' p-1 md:p-3 w-1/2 col-span-1'>{stud.number}</p>
                 <section className='flex flex-row  md:ml-2 md:col-span-1'>
                 { /*studentInfo is an object that holds id, name and num, you should destructure it when passing*/}
-                    <button className='bg-yellow-400 ml-0 p-1 md:p-3 md:w-40  ml-2' onClick={()=>getStud(stud)}> <Link href="./updateData">Edit</Link></button>
-                    <button className='bg-red-400  p-1 md:p-3 ml-0 md:w-40  ml-2 hover:bg-green-600' onClick = {()=>DeleteData(stud.id)}>Delete</button>
+                    <button className='bg-yellow-400 ml-0 p-1 md:p-3 md:w-40  ml-2 hover:bg-yellow-700' onClick={()=>getStud(stud)}> <Link href="./updateData">Edit</Link></button>
+                    <button className='bg-red-600  p-1 md:p-3 ml-0 md:w-40  ml-2 hover:bg-green-600' onClick = {()=>DeleteData(stud.id)}>Delete</button>
                 </section>                
             </section> )
             )
@@ -94,7 +117,7 @@ export default function ListOfStudents({studentCpE}) {
     </div>
 
    
-    </Layout>
+    </Layout> </div>
   )
 }
 

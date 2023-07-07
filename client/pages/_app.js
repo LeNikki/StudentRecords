@@ -8,7 +8,7 @@ subsets: ['latin']
 export default function App({ Component, pageProps }) {
   return (
     <main className= {poppins.className}>
-    <Component {...pageProps} />
+    <Component {...pageProps} className='bg-slate-300 h-full'/>
     </main>
   )
  
