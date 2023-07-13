@@ -89,7 +89,7 @@ export default function ListOfStudents({studentCpE}) {
                 <p className=' p-1 md:p-3 w-1/2 col-span-1 font-bold'>Student Number</p>   
                 <section className='items-center w-50 h-10 flex flex-row justify-around '>
                 
-                { selectAll? <button onClick={DeleteAll} className='bg-red-400 h-10 p-2 w-40 flex flex-row justify-around'> <Image src= {trash} width={20} height = {20}></Image>Delete All?</button> : <p>Select All</p> }
+                { selectAll? <button onClick={DeleteAll} className='bg-red-400 h-10 p-2 w-40 flex flex-row justify-around'> <Image src= {trash} alt = "trash" width={20} height = {20}></Image>Delete All?</button> : <p>Select All</p> }
                 <input
                     type="checkbox"
                     id="selectAll"

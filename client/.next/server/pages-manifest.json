@@ -2,7 +2,14 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/addNew": "pages/addNew.js",
+  "/400": "pages/400.html",
+  "/api/[studentId]": "pages/api/[studentId].js",
+  "/api/hello": "pages/api/hello.js",
+  "/api": "pages/api.js",
   "/api/studentdb": "pages/api/studentdb.js",
-  "/listOfStudents": "pages/listOfStudents.js"
+  "/": "pages/index.html",
+  "/addNew": "pages/addNew.js",
+  "/listOfStudents": "pages/listOfStudents.js",
+  "/updateData": "pages/updateData.js",
+  "/404": "pages/404.html"
 }

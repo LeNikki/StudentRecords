@@ -1,6 +1,6 @@
 import clientPromise from "../../lib/mongodb";
 
-export default async (req, res) => {
+export default async function handler (req, res) {
   try {
     const client = await clientPromise;
     const db = client.db("StudentsDb");
@@ -48,7 +48,7 @@ export default async (req, res) => {
           if (result.deletedCount >= 1) {
             res.status(200).json({message: "Successfully deleted all document. " + deleteAll});
           } else {
-            console.log("No documents matched the query. Deleted 0 documents.");
+            res.status(200).json({message: "No Data to delete. Empty."});
           }
         }
         else if(!deleteAll){
@@ -58,7 +58,7 @@ export default async (req, res) => {
           if (result.deletedCount === 1) {
             res.status(200).json({message: "Successfully deleted one document. " + deleteAll});
           } else {
-            console.log("No documents matched the query. Deleted 0 documents.");
+            res.status(200).json({message: "No Data to delete. Empty."});
           }
          
         }
