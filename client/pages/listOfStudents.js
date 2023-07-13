@@ -16,46 +16,51 @@ export default function ListOfStudents({studentCpE}) {
     const [selectAll, setselectAll] = useState(false);
     
   //  Get API req, loads new data when edited or deletd
-     function GetData(){
-        setstudent(studentCpE)
-        console.log("getting...")
+    async function GetData(){
+        //what could be the problem with this function?
+        let collectionName = "English"; //we will send this as req.query.collection 
+        const res = await fetch (`http://localhost:3000/api/studentdb?collection=${collectionName}`, { 
+            method:"GET"   
+        });
+        const data = await res.json()
+        setstudent(data);
     }
-    
     async function DeleteData(studentId){
-        // const res = await fetch(`http://localhost:3000/api/delete`, {
-        //     method: "DELETE",
-        //     headers: { 'Content-Type': "application/json" },
-        //     body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
-        //   });
-        // const data = res.json()
+        //will this code snippet work if I want to delete a certain user in the database?
+        const collectionName = "English"
+        const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}`, {
+            method: "DELETE",
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify({ idNumber: studentId, deleteAll: false}) // Pass the query object with the idNumber field
+          });
+        const data = await res.json();
         
-        // window.alert("Deleted")
-        // GetData()
+        window.alert(data.message);
+        GetData();
     }
     async function DeleteAll(){
-    //     const res = await fetch(`http://localhost:3000/api/delete/${studentId}`, {
-    //         method: "DELETE",
-    //         headers: { 'Content-Type': "application/json" },
-    //         body: JSON.stringify({ idNumber: studentId }) // Pass the query object with the idNumber field
-    //       });
+        const collectionName = "English";
+        const deleteAll = window.confirm("Are you sure you want to DELETE all data? This cannot be undone.");
+        if(deleteAll){
+            const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}`, {
+            method: "DELETE",
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify({deleteAll: true})
+          });
           
-    //   //  const data = res.json()
+        const data = await res.json()
         
-    //     window.alert("Deleted All")
-    //     GetData()
+        window.alert(data.message)
+        }
+       
+        GetData()
     }
 
     function getStud(stud){
         console.log("update")
         prevInfo = stud
     }
-    function deleteAll(){
-        const deleteAll = window.confirm("Are you sure you want to DELETE all data? This cannot be undone.");
-        if(deleteAll){
-            // DeleteAll()
-            // GetData()
-        }
-    }
+  
    
    
 
@@ -87,7 +92,7 @@ export default function ListOfStudents({studentCpE}) {
                 <p className=' p-1 md:p-3 w-1/2 col-span-1 font-bold'>Student Number</p>   
                 <section className='items-center w-50 h-10 flex flex-row justify-around '>
                 
-                { selectAll? <button onClick={deleteAll} className='bg-red-400 h-10 p-2 w-40 flex flex-row justify-around'> <Image src= {trash} width={20} height = {20}></Image>Delete All?</button> : <p>Select All</p> }
+                { selectAll? <button onClick={DeleteAll} className='bg-red-400 h-10 p-2 w-40 flex flex-row justify-around'> <Image src= {trash} width={20} height = {20}></Image>Delete All?</button> : <p>Select All</p> }
                 <input
                     type="checkbox"
                     id="selectAll"

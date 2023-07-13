@@ -42,14 +42,26 @@ export default async (req, res) => {
        
       } break;
       case 'DELETE': {
-        const studentId = req.body.idNumber; // Access idNumber from the request body
-        //const query = { id: studentId }; //in the database we have: {_id, id, name, number}.. we will query the "id"
-        const result = await db.collection("StudentsDb").deleteOne(query);
-        if (result.deletedCount === 1) {
-          console.log("Successfully deleted one document.");
-        } else {
-          console.log("No documents matched the query. Deleted 0 documents.");
+        const deleteAll = await req.body.deleteAll
+        if(deleteAll){
+          const result = await db.collection(collectionName).deleteMany({});
+          if (result.deletedCount >= 1) {
+            res.json({message: "Successfully deleted all document. " + deleteAll});
+          } else {
+            console.log("No documents matched the query. Deleted 0 documents.");
+          }
         }
+        else{
+          const studentId = req.body.idNumber; // Access idNumber from the request body
+          const query = { id: studentId }; //in the database we have: {_id, id, name, number}.. we will query the "id"
+          const result = await db.collection(collectionName).deleteOne(query);
+          if (result.deletedCount === 1) {
+            res.json({message: "Successfully deleted one document. " + deleteAll});
+          } else {
+            console.log("No documents matched the query. Deleted 0 documents.");
+          }
+        }
+       
       } break;
       
     }
