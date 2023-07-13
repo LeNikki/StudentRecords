@@ -8,8 +8,8 @@
   "/api": "pages/api.js",
   "/api/studentdb": "pages/api/studentdb.js",
   "/": "pages/index.html",
+  "/updateData": "pages/updateData.js",
   "/addNew": "pages/addNew.js",
   "/listOfStudents": "pages/listOfStudents.js",
-  "/updateData": "pages/updateData.js",
   "/404": "pages/404.html"
 }

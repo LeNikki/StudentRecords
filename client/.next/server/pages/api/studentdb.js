@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ studentdb)
+  "default": () => (/* binding */ handler)
 });
 
 ;// CONCATENATED MODULE: external "mongodb"
@@ -41,7 +41,7 @@ if (false) {} else {
 
 ;// CONCATENATED MODULE: ./pages/api/studentdb.js
 
-/* harmony default export */ const studentdb = (async (req, res)=>{
+async function handler(req, res) {
     try {
         const client = await mongodb;
         const db = client.db("StudentsDb");
@@ -135,7 +135,7 @@ if (false) {} else {
     } catch (e) {
         console.error(e);
     }
-});
+}
 
 
 /***/ })

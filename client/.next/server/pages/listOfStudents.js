@@ -159,6 +159,7 @@ function ListOfStudents({ studentCpE  }) {
                                                     " ",
                                                     /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
                                                         src: trash,
+                                                        alt: "trash",
                                                         width: 20,
                                                         height: 20
                                                     }),
