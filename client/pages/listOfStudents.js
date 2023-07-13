@@ -28,10 +28,8 @@ export default function ListOfStudents({studentCpE}) {
     async function DeleteData(studentId){
         //will this code snippet work if I want to delete a certain user in the database?
         const collectionName = "English"
-        const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}`, {
-            method: "DELETE",
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify({ idNumber: studentId, deleteAll: false}) // Pass the query object with the idNumber field
+        const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}&deleteAll=false`, {
+            method: "DELETE"
           });
         const data = await res.json();
         
@@ -41,11 +39,10 @@ export default function ListOfStudents({studentCpE}) {
     async function DeleteAll(){
         const collectionName = "English";
         const deleteAll = window.confirm("Are you sure you want to DELETE all data? This cannot be undone.");
+        console.log (deleteAll);
         if(deleteAll){
-            const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}`, {
-            method: "DELETE",
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify({deleteAll: true})
+            const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}&deleteAll=true`, {
+            method: "DELETE"
           });
           
         const data = await res.json()

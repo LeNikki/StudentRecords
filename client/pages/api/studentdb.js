@@ -13,7 +13,7 @@ export default async (req, res) => {
           .sort({ metacritic: -1 })
           .limit(10)
           .toArray();
-          res.status(400).json(studentCPE);
+          res.status(200).json(studentCPE);
       } break;
       case "POST": {
         const { name, number } = req.body; //the object that we will pus is {name: "SNdjnfjn", number: "34534"}
@@ -37,29 +37,33 @@ export default async (req, res) => {
         else {
           // Data does not exist in the collection
           const studentCPE = await db.collection(collectionName).insertOne({name, number});
-          res.status(400).json({ data: studentCPE, message: 'Successfully added new student.' });
+          res.status(200).json({ data: studentCPE, message: 'Successfully added new student.' });
         }
        
       } break;
       case 'DELETE': {
-        const deleteAll = await req.body.deleteAll
+        const deleteAll = req.query.deleteAll
         if(deleteAll){
           const result = await db.collection(collectionName).deleteMany({});
           if (result.deletedCount >= 1) {
-            res.json({message: "Successfully deleted all document. " + deleteAll});
+            res.status(200).json({message: "Successfully deleted all document. " + deleteAll});
           } else {
             console.log("No documents matched the query. Deleted 0 documents.");
           }
         }
-        else{
+        else if(!deleteAll){
           const studentId = req.body.idNumber; // Access idNumber from the request body
           const query = { id: studentId }; //in the database we have: {_id, id, name, number}.. we will query the "id"
           const result = await db.collection(collectionName).deleteOne(query);
           if (result.deletedCount === 1) {
-            res.json({message: "Successfully deleted one document. " + deleteAll});
+            res.status(200).json({message: "Successfully deleted one document. " + deleteAll});
           } else {
             console.log("No documents matched the query. Deleted 0 documents.");
           }
+         
+        }
+        else{
+          res.json({message: 'Confused: ' + deleteAll})
         }
        
       } break;
