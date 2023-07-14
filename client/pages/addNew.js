@@ -38,29 +38,12 @@ export default function AddNew({studentCpE}) {
    
 
   async function newData(e){
-   //new student
     e.preventDefault();
     let item = { 
     name: studInfo.name, 
     number: studInfo.num,
   }
-  //check if student number exists
-  // const index = student.find(takenVal=> takenVal.number == item.number);
-  // const stdn = student.find(takenVal=> takenVal.name == item.name);
-  // const ind = {index};
-  // const stdName = {stdn};
-  
-    // if(ind.index!=null){
-    //   if (ind.index.number === item.number){
-    //     window.alert("ERROR: Student Number Exists") ;
-    //   }    
-    // }
-    // else if(stdName.stdn!=null){
-    //  if (stdName.stdn.name === item.name){
-    //     window.alert("ERROR: Student Name Exists") ;
-    //   }
-    // }
-    // else{
+
       const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName}`, {
         method: "POST",
         headers: {'Content-Type':"application/json"},
@@ -69,13 +52,9 @@ export default function AddNew({studentCpE}) {
       const data = await res.json();
        window.alert(data.message) ;
        clear(); //clear input box
-    // }
-   GetData();
+       GetData();
   }
     
-    
-
-
 
 
   function clear(){

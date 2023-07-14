@@ -2,125 +2,47 @@ import React from 'react'
 import Layout from "../components/layout"
 import Head from "next/head"
 import { useState } from 'react'
-//import {prevInfo} from "./listOfStudents"
 import clientPromise from '@/lib/mongodb'
-
-// export async function GetData(){
-//   const res = await fetch("http://localhost:8000/students");
-//   const data = await res.json();
-//   return data;
-// }
-
-export default function UpdateData({studentProp}) {
-  //THIS IS FOR SERVER-JSON, do not remove
-//prevInfo holds the particular student info
+import {prevInfo} from "./listOfStudents"
+export default function UpdateData({studentCpE}) {
   //This is the PUT request to update data
- // const student = studentProp
+ const [studInfo, setstudInfo] = useState({name: prevInfo.name, num: prevInfo.number});
 
-//  async function upData(e){
-//   e.preventDefault()
-//   let stud = {
-//     id: prevInfo.id,
-//     name: studInfo.name,
-//     number: studInfo.num
-//   }
-
-//   const index = student.find(takenVal=> takenVal.number == stud.number);
-//   const stdn = student.find(takenVal=> takenVal.name == stud.name);
-//   const ind = {index}
-//   const stdName = {stdn}
-
-//   if(prevInfo.name==stud.name){
-//     //check is number is existing
-//     if(ind.index!=null){
-//       if(ind.index.number==stud.number){
-//         window.alert("Number is already existing")
-//       }
-//       else{
-//         const res = await fetch(`http://localhost:8000/students/${prevInfo.id}`,
-//         {
-//           method: "PUT",
-//           headers: {'Content-type': 'application/json'}, //TUNGOD SA HEADERS mao di ma submit kay header ra shunga ka ba HAHHAHA
-//           body: JSON.stringify(stud)
-//         })
-//         const data = await res.json() 
-//           window.alert("Submitted Successfully") ;
-//           clear() //clear input box 
-//       }
-//     }
-//     else{
-//       const res = await fetch(`http://localhost:8000/students/${prevInfo.id}`,
-//       {
-//         method: "PUT",
-//         headers: {'Content-type': 'application/json'}, //TUNGOD SA HEADERS mao di ma submit kay header ra shunga ka ba HAHHAHA
-//         body: JSON.stringify(stud)
-//       })
-//       const data = await res.json() 
-//         window.alert("Submitted Successfully") ;
-//         clear() //clear input box 
-//     }
-//   }
-//   if(prevInfo.number==stud.number){
-//     //check is number is existing
-//     if(stdName.stdn!=null){
-//       if(stdName.stdn.name==stud.name){
-//         window.alert("Name is already existing")
-//       }
-//       else{
-//         const res = await fetch(`http://localhost:8000/students/${prevInfo.id}`,
-//         {
-//           method: "PUT",
-//           headers: {'Content-type': 'application/json'}, //TUNGOD SA HEADERS mao di ma submit kay header ra shunga ka ba HAHHAHA
-//           body: JSON.stringify(stud)
-//         })
-//         const data = await res.json() 
-//           window.alert("Submitted Successfully") ;
-//           clear() //clear input box 
-//       }
-//     }
-//     else{
-//       const res = await fetch(`http://localhost:8000/students/${prevInfo.id}`,
-//       {
-//         method: "PUT",
-//         headers: {'Content-type': 'application/json'}, //TUNGOD SA HEADERS mao di ma submit kay header ra shunga ka ba HAHHAHA
-//         body: JSON.stringify(stud)
-//       })
-//       const data = await res.json() 
-//         window.alert("Submitted Successfully") ;
-//         clear() //clear input box 
-//     }
-//   }
-//   else{
-//     const res = await fetch(`http://localhost:8000/students/${prevInfo.id}`,
-//     {
-//       method: "PUT",
-//       headers: {'Content-type': 'application/json'}, //TUNGOD SA HEADERS mao di ma submit kay header ra shunga ka ba HAHHAHA
-//       body: JSON.stringify(stud)
-//     })
-//     const data = await res.json() 
-//       window.alert("Submitted Successfully") ;
-//       clear() //clear input box 
-//   }
-//   GetData()
-//  }
-
- const [studInfo, setstudInfo] = useState({name: prevInfo.name, num: prevInfo.number})
+const upData= async(e)=>{
+  e.preventDefault();
+  let stud = {
+    name: studInfo.name,
+    number: studInfo.num,
+    prevName: prevInfo.name,
+    prevNum : prevInfo.number
+  }
+  const collectionName = "English";
+    const res = await fetch(`http://localhost:3000/api/studentdb?collection=${collectionName} `,
+      {
+        method: "PUT",
+        headers: {'Content-type': 'application/json'}, //TUNGOD SA HEADERS mao di ma submit kay header ra shunga ka ba HAHHAHA
+        body: JSON.stringify(stud)
+      })
+      const data = await res.json() 
+        window.alert(data.message) ;
+        clear() //clear input box 
+}
 
 
- function setName(e){
+const setName=(e)=>{
   setstudInfo(prev=>({
     ...prev,
     name: e.target.value,
   }))
 }
-function setNum(e){
+const setNum=(e)=>{
   setstudInfo(prev=>({
     ...prev,
     num: e.target.value,
   }))
 }
 
-function clear(){
+const clear=()=>{
   const name = document.getElementById("student_name")
   const number = document.getElementById("student_num")
 
@@ -132,7 +54,7 @@ function clear(){
     <Layout>
         <Head><title>Update Info</title></Head>
         <form action ="/updateData" method = "PUT" className=' flex flex-col'>
-           <p>ID: {prevInfo.id}</p>
+           <p>ID: {prevInfo.number}</p>
            <fieldset className='flex flex-row my-2'>
            <label  className='font-semibold py-2 px-3 w-30 md:w-60'>Please enter name: </label>
             <input type = "text"
@@ -165,31 +87,27 @@ function clear(){
     </Layout>
   )
 }
-//THIS IS FOR SERVER-JSON
-// export async function getServerSideProps(){
-//   const data = await GetData();
-//   return{
-//       props:{
-//           studentProp: data
-//       }
-//   }
-// }
 
-//this is for mongodb:
-export async function getServerSideProps(){
-    
+export const getServerSideProps = async () => {
   const client = await clientPromise;
-  const studentCPE_db = client.db("StudentsDb"); //name of db in mongodb
+  const studentCPE_db = client.db("StudentsDb");
 
-  const studentCPE = await studentCPE_db 
-      .collection("StudentsCollection")
-      .find({})
-      .sort({ metacritic: -1 })
-      .limit(20)
-      .toArray();
-      
+  const studentCPE = await studentCPE_db
+    .collection("StudentsCollection")
+    .find({})
+    .sort({ metacritic: -1 })
+    .limit(20)
+    .toArray();
+
   return {
-          props: { studentCpE: JSON.parse(JSON.stringify(studentCPE)) },
+    props: { studentCpE: JSON.parse(JSON.stringify(studentCPE)) },
   };
+};
 
-}
+
+
+
+
+
+
+

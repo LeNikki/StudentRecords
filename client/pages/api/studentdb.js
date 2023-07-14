@@ -67,6 +67,32 @@ export default async function handler (req, res) {
         }
        
       } break;
+      case "PUT": {
+        const { name, number, prevName, prevNum } = req.body; //the object that we will pus is {name: "SNdjnfjn", number: "34534"}
+        const nameExist = await db.collection(collectionName).findOne({ name});
+        const numExist = await db.collection(collectionName).findOne({number});
+        if (nameExist!=prevName) {
+          // Data exists in the collection
+          console.log(nameExist);
+          res.json({ message: 'Error. Student name exists' });
+        } 
+        else if(numExist!=prevNum){
+            // Data exists in the collection
+            console.log('Data exists:');
+            res.json({ message: 'Error. Student number exists' });
+        }
+        else if(numExist!=prevNum && nameExist!=prevName){
+          // Data exists in the collection
+          console.log('Data exists:');
+          res.json({ message: 'Error. Student name and number exists' });
+         }
+        else {
+          // Data does not exist in the collection
+          const updateData = { $set: { name: name, idNumber: number } };
+          const studentCPE = await db.collection(collectionName).updateOne(query, updateData);
+          res.status(200).json({ data: studentCPE, message: 'Successfully updated student data.' });
+        }
+      }
       
     }
   }

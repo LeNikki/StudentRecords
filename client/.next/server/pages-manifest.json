@@ -2,14 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/400": "pages/400.html",
-  "/api/[studentId]": "pages/api/[studentId].js",
-  "/api/hello": "pages/api/hello.js",
-  "/api": "pages/api.js",
-  "/api/studentdb": "pages/api/studentdb.js",
-  "/": "pages/index.html",
-  "/updateData": "pages/updateData.js",
-  "/addNew": "pages/addNew.js",
-  "/listOfStudents": "pages/listOfStudents.js",
-  "/404": "pages/404.html"
+  "/updateData": "pages/updateData.js"
 }

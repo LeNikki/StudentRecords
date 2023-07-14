@@ -1,142 +1,45 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 948;
-exports.ids = [948];
+exports.id = "pages/api/studentdb";
+exports.ids = ["pages/api/studentdb"];
 exports.modules = {
 
-/***/ 7415:
+/***/ "mongodb":
+/*!**************************!*\
+  !*** external "mongodb" ***!
+  \**************************/
+/***/ ((module) => {
+
+module.exports = require("mongodb");
+
+/***/ }),
+
+/***/ "(api)/./lib/mongodb.js":
+/*!************************!*\
+  !*** ./lib/mongodb.js ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongodb */ \"mongodb\");\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongodb__WEBPACK_IMPORTED_MODULE_0__);\n\nif (!process.env.MONGODB_URI) {\n    throw new Error('Invalid environment variable: \"MONGODB_URI\"');\n}\nconst uri = \"mongodb+srv://admin:admin@nicolecluster.votszzm.mongodb.net/\";\nconst options = {};\nlet client;\nlet clientPromise;\nif (!process.env.MONGODB_URI) {\n    throw new Error(\"Please add your Mongo URI to .env.local\");\n}\nif (true) {\n    // In development mode, use a global variable so that the value\n    // is preserved across module reloads caused by HMR (Hot Module Replacement).\n    if (!global._mongoClientPromise) {\n        client = new mongodb__WEBPACK_IMPORTED_MODULE_0__.MongoClient(uri, options);\n        global._mongoClientPromise = client.connect();\n    }\n    clientPromise = global._mongoClientPromise;\n} else {}\n// Export a module-scoped MongoClient promise. By doing this in a\n// separate module, the client can be shared across functions.\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clientPromise);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9saWIvbW9uZ29kYi5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7QUFBcUM7QUFFckMsSUFBSSxDQUFDQyxRQUFRQyxHQUFHLENBQUNDLFdBQVcsRUFBRTtJQUM1QixNQUFNLElBQUlDLE1BQU0sK0NBQStDO0FBQ2pFLENBQUM7QUFFRCxNQUFNQyxNQUFPO0FBQ2IsTUFBTUMsVUFBVSxDQUFDO0FBRWpCLElBQUlDO0FBQ0osSUFBSUM7QUFFSixJQUFJLENBQUNQLFFBQVFDLEdBQUcsQ0FBQ0MsV0FBVyxFQUFFO0lBQzVCLE1BQU0sSUFBSUMsTUFBTSwyQ0FBMkM7QUFDN0QsQ0FBQztBQUVELElBQUlILElBQXlCLEVBQWU7SUFDMUMsK0RBQStEO0lBQy9ELDZFQUE2RTtJQUM3RSxJQUFJLENBQUNRLE9BQU9DLG1CQUFtQixFQUFFO1FBQy9CSCxTQUFTLElBQUlQLGdEQUFXQSxDQUFDSyxLQUFLQztRQUM5QkcsT0FBT0MsbUJBQW1CLEdBQUdILE9BQU9JLE9BQU87SUFDN0MsQ0FBQztJQUNESCxnQkFBZ0JDLE9BQU9DLG1CQUFtQjtBQUM1QyxPQUFPLEVBSU47QUFFRCxpRUFBaUU7QUFDakUsOERBQThEO0FBQzlELGlFQUFlRixhQUFhQSxFQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3R1ZGVudC1pbi8uL2xpYi9tb25nb2RiLmpzP2Q5MjAiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTW9uZ29DbGllbnQgfSBmcm9tICdtb25nb2RiJ1xyXG5cclxuaWYgKCFwcm9jZXNzLmVudi5NT05HT0RCX1VSSSkge1xyXG4gIHRocm93IG5ldyBFcnJvcignSW52YWxpZCBlbnZpcm9ubWVudCB2YXJpYWJsZTogXCJNT05HT0RCX1VSSVwiJyk7XHJcbn1cclxuXHJcbmNvbnN0IHVyaSA9ICBcIm1vbmdvZGIrc3J2Oi8vYWRtaW46YWRtaW5Abmljb2xlY2x1c3Rlci52b3RzenptLm1vbmdvZGIubmV0L1wiO1xyXG5jb25zdCBvcHRpb25zID0ge31cclxuXHJcbmxldCBjbGllbnQ7XHJcbmxldCBjbGllbnRQcm9taXNlOyBcclxuXHJcbmlmICghcHJvY2Vzcy5lbnYuTU9OR09EQl9VUkkpIHtcclxuICB0aHJvdyBuZXcgRXJyb3IoJ1BsZWFzZSBhZGQgeW91ciBNb25nbyBVUkkgdG8gLmVudi5sb2NhbCcpO1xyXG59XHJcblxyXG5pZiAocHJvY2Vzcy5lbnYuTk9ERV9FTlYgPT09ICdkZXZlbG9wbWVudCcpIHtcclxuICAvLyBJbiBkZXZlbG9wbWVudCBtb2RlLCB1c2UgYSBnbG9iYWwgdmFyaWFibGUgc28gdGhhdCB0aGUgdmFsdWVcclxuICAvLyBpcyBwcmVzZXJ2ZWQgYWNyb3NzIG1vZHVsZSByZWxvYWRzIGNhdXNlZCBieSBITVIgKEhvdCBNb2R1bGUgUmVwbGFjZW1lbnQpLlxyXG4gIGlmICghZ2xvYmFsLl9tb25nb0NsaWVudFByb21pc2UpIHtcclxuICAgIGNsaWVudCA9IG5ldyBNb25nb0NsaWVudCh1cmksIG9wdGlvbnMpXHJcbiAgICBnbG9iYWwuX21vbmdvQ2xpZW50UHJvbWlzZSA9IGNsaWVudC5jb25uZWN0KClcclxuICB9XHJcbiAgY2xpZW50UHJvbWlzZSA9IGdsb2JhbC5fbW9uZ29DbGllbnRQcm9taXNlXHJcbn0gZWxzZSB7XHJcbiAgLy8gSW4gcHJvZHVjdGlvbiBtb2RlLCBpdCdzIGJlc3QgdG8gbm90IHVzZSBhIGdsb2JhbCB2YXJpYWJsZS5cclxuICBjbGllbnQgPSBuZXcgTW9uZ29DbGllbnQodXJpLCBvcHRpb25zKVxyXG4gIGNsaWVudFByb21pc2UgPSBjbGllbnQuY29ubmVjdCgpXHJcbn1cclxuXHJcbi8vIEV4cG9ydCBhIG1vZHVsZS1zY29wZWQgTW9uZ29DbGllbnQgcHJvbWlzZS4gQnkgZG9pbmcgdGhpcyBpbiBhXHJcbi8vIHNlcGFyYXRlIG1vZHVsZSwgdGhlIGNsaWVudCBjYW4gYmUgc2hhcmVkIGFjcm9zcyBmdW5jdGlvbnMuXHJcbmV4cG9ydCBkZWZhdWx0IGNsaWVudFByb21pc2UiXSwibmFtZXMiOlsiTW9uZ29DbGllbnQiLCJwcm9jZXNzIiwiZW52IiwiTU9OR09EQl9VUkkiLCJFcnJvciIsInVyaSIsIm9wdGlvbnMiLCJjbGllbnQiLCJjbGllbnRQcm9taXNlIiwiZ2xvYmFsIiwiX21vbmdvQ2xpZW50UHJvbWlzZSIsImNvbm5lY3QiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./lib/mongodb.js\n");
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ handler)
-});
+/***/ }),
 
-;// CONCATENATED MODULE: external "mongodb"
-const external_mongodb_namespaceObject = require("mongodb");
-;// CONCATENATED MODULE: ./lib/mongodb.js
+/***/ "(api)/./pages/api/studentdb.js":
+/*!********************************!*\
+  !*** ./pages/api/studentdb.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-if (!process.env.MONGODB_URI) {
-    throw new Error('Invalid environment variable: "MONGODB_URI"');
-}
-const uri = "mongodb+srv://admin:admin@nicolecluster.votszzm.mongodb.net/";
-const options = {};
-let client;
-let clientPromise;
-if (!process.env.MONGODB_URI) {
-    throw new Error("Please add your Mongo URI to .env.local");
-}
-if (false) {} else {
-    // In production mode, it's best to not use a global variable.
-    client = new external_mongodb_namespaceObject.MongoClient(uri, options);
-    clientPromise = client.connect();
-}
-// Export a module-scoped MongoClient promise. By doing this in a
-// separate module, the client can be shared across functions.
-/* harmony default export */ const mongodb = (clientPromise);
-
-;// CONCATENATED MODULE: ./pages/api/studentdb.js
-
-async function handler(req, res) {
-    try {
-        const client = await mongodb;
-        const db = client.db("StudentsDb");
-        const collectionName = req.query.collection;
-        switch(req.method){
-            case "GET":
-                {
-                    const studentCPE = await db.collection(collectionName).find({}).sort({
-                        metacritic: -1
-                    }).limit(10).toArray();
-                    res.status(200).json(studentCPE);
-                }
-                break;
-            case "POST":
-                {
-                    const { name , number  } = req.body; //the object that we will pus is {name: "SNdjnfjn", number: "34534"}
-                    const nameExist = await db.collection(collectionName).findOne({
-                        name
-                    });
-                    const numExist = await db.collection(collectionName).findOne({
-                        number
-                    });
-                    if (nameExist) {
-                        // Data exists in the collection
-                        console.log("Data exists:");
-                        res.json({
-                            message: "Error. Student name exists"
-                        });
-                    } else if (numExist) {
-                        // Data exists in the collection
-                        console.log("Data exists:");
-                        res.json({
-                            message: "Error. Student number exists"
-                        });
-                    } else if (numExist && nameExist) {
-                        // Data exists in the collection
-                        console.log("Data exists:");
-                        res.json({
-                            message: "Error. Student name and number exists"
-                        });
-                    } else {
-                        // Data does not exist in the collection
-                        const studentCPE = await db.collection(collectionName).insertOne({
-                            name,
-                            number
-                        });
-                        res.status(200).json({
-                            data: studentCPE,
-                            message: "Successfully added new student."
-                        });
-                    }
-                }
-                break;
-            case "DELETE":
-                {
-                    const deleteAll = req.query.deleteAll;
-                    if (deleteAll) {
-                        const result = await db.collection(collectionName).deleteMany({});
-                        if (result.deletedCount >= 1) {
-                            res.status(200).json({
-                                message: "Successfully deleted all document. " + deleteAll
-                            });
-                        } else {
-                            res.status(200).json({
-                                message: "No Data to delete. Empty."
-                            });
-                        }
-                    } else if (!deleteAll) {
-                        const studentId = req.body.idNumber; // Access idNumber from the request body
-                        const query = {
-                            id: studentId
-                        }; //in the database we have: {_id, id, name, number}.. we will query the "id"
-                        const result = await db.collection(collectionName).deleteOne(query);
-                        if (result.deletedCount === 1) {
-                            res.status(200).json({
-                                message: "Successfully deleted one document. " + deleteAll
-                            });
-                        } else {
-                            res.status(200).json({
-                                message: "No Data to delete. Empty."
-                            });
-                        }
-                    } else {
-                        res.json({
-                            message: "Confused: " + deleteAll
-                        });
-                    }
-                }
-                break;
-        }
-    } catch (e) {
-        console.error(e);
-    }
-}
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _lib_mongodb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../lib/mongodb */ \"(api)/./lib/mongodb.js\");\n\nasync function handler(req, res) {\n    try {\n        const client = await _lib_mongodb__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n        const db = client.db(\"StudentsDb\");\n        const collectionName = req.query.collection;\n        switch(req.method){\n            case \"GET\":\n                {\n                    const studentCPE = await db.collection(collectionName).find({}).sort({\n                        metacritic: -1\n                    }).limit(10).toArray();\n                    res.status(200).json(studentCPE);\n                }\n                break;\n            case \"POST\":\n                {\n                    const { name , number  } = req.body; //the object that we will pus is {name: \"SNdjnfjn\", number: \"34534\"}\n                    const nameExist = await db.collection(collectionName).findOne({\n                        name\n                    });\n                    const numExist = await db.collection(collectionName).findOne({\n                        number\n                    });\n                    if (nameExist) {\n                        // Data exists in the collection\n                        console.log(\"Data exists:\");\n                        res.json({\n                            message: \"Error. Student name exists\"\n                        });\n                    } else if (numExist) {\n                        // Data exists in the collection\n                        console.log(\"Data exists:\");\n                        res.json({\n                            message: \"Error. Student number exists\"\n                        });\n                    } else if (numExist && nameExist) {\n                        // Data exists in the collection\n                        console.log(\"Data exists:\");\n                        res.json({\n                            message: \"Error. Student name and number exists\"\n                        });\n                    } else {\n                        // Data does not exist in the collection\n                        const studentCPE = await db.collection(collectionName).insertOne({\n                            name,\n                            number\n                        });\n                        res.status(200).json({\n                            data: studentCPE,\n                            message: \"Successfully added new student.\"\n                        });\n                    }\n                }\n                break;\n            case \"DELETE\":\n                {\n                    const deleteAll = req.query.deleteAll;\n                    if (deleteAll) {\n                        const result = await db.collection(collectionName).deleteMany({});\n                        if (result.deletedCount >= 1) {\n                            res.status(200).json({\n                                message: \"Successfully deleted all document. \" + deleteAll\n                            });\n                        } else {\n                            res.status(200).json({\n                                message: \"No Data to delete. Empty.\"\n                            });\n                        }\n                    } else if (!deleteAll) {\n                        const studentId = req.body.idNumber; // Access idNumber from the request body\n                        const query1 = {\n                            id: studentId\n                        }; //in the database we have: {_id, id, name, number}.. we will query the \"id\"\n                        const result = await db.collection(collectionName).deleteOne(query1);\n                        if (result.deletedCount === 1) {\n                            res.status(200).json({\n                                message: \"Successfully deleted one document. \" + deleteAll\n                            });\n                        } else {\n                            res.status(200).json({\n                                message: \"No Data to delete. Empty.\"\n                            });\n                        }\n                    } else {\n                        res.json({\n                            message: \"Confused: \" + deleteAll\n                        });\n                    }\n                }\n                break;\n            case \"PUT\":\n                {\n                    const { name , number , prevName , prevNum  } = req.body; //the object that we will pus is {name: \"SNdjnfjn\", number: \"34534\"}\n                    const nameExist = await db.collection(collectionName).findOne({\n                        name\n                    });\n                    const numExist = await db.collection(collectionName).findOne({\n                        number\n                    });\n                    if (nameExist != prevName) {\n                        // Data exists in the collection\n                        console.log(nameExist);\n                        res.json({\n                            message: \"Error. Student name exists\"\n                        });\n                    } else if (numExist != prevNum) {\n                        // Data exists in the collection\n                        console.log(\"Data exists:\");\n                        res.json({\n                            message: \"Error. Student number exists\"\n                        });\n                    } else if (numExist != prevNum && nameExist != prevName) {\n                        // Data exists in the collection\n                        console.log(\"Data exists:\");\n                        res.json({\n                            message: \"Error. Student name and number exists\"\n                        });\n                    } else {\n                        // Data does not exist in the collection\n                        const updateData = {\n                            $set: {\n                                name: name,\n                                idNumber: number\n                            }\n                        };\n                        const studentCPE = await db.collection(collectionName).updateOne(query, updateData);\n                        res.status(200).json({\n                            data: studentCPE,\n                            message: \"Successfully updated student data.\"\n                        });\n                    }\n                }\n        }\n    } catch (e) {\n        console.error(e);\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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O3dCQUM1RCxNQUFNVCxhQUFhLE1BQU1MLEdBQUdHLFVBQVUsQ0FBQ0YsZ0JBQWdCbUMsU0FBUyxDQUFDbEMsT0FBT2dDO3dCQUN4RXBDLElBQUlhLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7NEJBQUVXLE1BQU1sQjs0QkFBWWdCLFNBQVM7d0JBQXFDO29CQUN6RixDQUFDO2dCQUNIO1FBRUY7SUFDRixFQUNBLE9BQU9nQixHQUFHO1FBQ1JsQixRQUFRbUIsS0FBSyxDQUFDRDtJQUNoQjtBQUVGLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHVkZW50LWluLy4vcGFnZXMvYXBpL3N0dWRlbnRkYi5qcz85MjAyIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjbGllbnRQcm9taXNlIGZyb20gXCIuLi8uLi9saWIvbW9uZ29kYlwiO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlciAocmVxLCByZXMpIHtcclxuICB0cnkge1xyXG4gICAgY29uc3QgY2xpZW50ID0gYXdhaXQgY2xpZW50UHJvbWlzZTtcclxuICAgIGNvbnN0IGRiID0gY2xpZW50LmRiKFwiU3R1ZGVudHNEYlwiKTtcclxuICAgIGNvbnN0IGNvbGxlY3Rpb25OYW1lID0gcmVxLnF1ZXJ5LmNvbGxlY3Rpb247IFxyXG4gICAgc3dpdGNoKHJlcS5tZXRob2Qpe1xyXG4gICAgICBjYXNlIFwiR0VUXCI6IHtcclxuICAgICAgICBjb25zdCBzdHVkZW50Q1BFID0gYXdhaXQgZGJcclxuICAgICAgICAgIC5jb2xsZWN0aW9uKGNvbGxlY3Rpb25OYW1lKVxyXG4gICAgICAgICAgLmZpbmQoe30pXHJcbiAgICAgICAgICAuc29ydCh7IG1ldGFjcml0aWM6IC0xIH0pXHJcbiAgICAgICAgICAubGltaXQoMTApXHJcbiAgICAgICAgICAudG9BcnJheSgpO1xyXG4gICAgICAgICAgcmVzLnN0YXR1cygyMDApLmpzb24oc3R1ZGVudENQRSk7XHJcbiAgICAgIH0gYnJlYWs7XHJcbiAgICAgIGNhc2UgXCJQT1NUXCI6IHtcclxuICAgICAgICBjb25zdCB7IG5hbWUsIG51bWJlciB9ID0gcmVxLmJvZHk7IC8vdGhlIG9iamVjdCB0aGF0IHdlIHdpbGwgcHVzIGlzIHtuYW1lOiBcIlNOZGpuZmpuXCIsIG51bWJlcjogXCIzNDUzNFwifVxyXG4gICAgICAgIGNvbnN0IG5hbWVFeGlzdCA9IGF3YWl0IGRiLmNvbGxlY3Rpb24oY29sbGVjdGlvbk5hbWUpLmZpbmRPbmUoeyBuYW1lfSk7XHJcbiAgICAgICAgY29uc3QgbnVtRXhpc3QgPSBhd2FpdCBkYi5jb2xsZWN0aW9uKGNvbGxlY3Rpb25OYW1lKS5maW5kT25lKHtudW1iZXJ9KTtcclxuICAgICAgICBpZiAobmFtZUV4aXN0KSB7XHJcbiAgICAgICAgICAvLyBEYXRhIGV4aXN0cyBpbiB0aGUgY29sbGVjdGlvblxyXG4gICAgICAgICAgY29uc29sZS5sb2coJ0RhdGEgZXhpc3RzOicpO1xyXG4gICAgICAgICAgcmVzLmpzb24oeyBtZXNzYWdlOiAnRXJyb3IuIFN0dWRlbnQgbmFtZSBleGlzdHMnIH0pO1xyXG4gICAgICAgIH0gXHJcbiAgICAgICAgZWxzZSBpZihudW1FeGlzdCl7XHJcbiAgICAgICAgICAgIC8vIERhdGEgZXhpc3RzIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAgICAgICAgICAgIGNvbnNvbGUubG9nKCdEYXRhIGV4aXN0czonKTtcclxuICAgICAgICAgICAgcmVzLmpzb24oeyBtZXNzYWdlOiAnRXJyb3IuIFN0dWRlbnQgbnVtYmVyIGV4aXN0cycgfSk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGVsc2UgaWYobnVtRXhpc3QgJiYgbmFtZUV4aXN0KXtcclxuICAgICAgICAgIC8vIERhdGEgZXhpc3RzIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAgICAgICAgICBjb25zb2xlLmxvZygnRGF0YSBleGlzdHM6Jyk7XHJcbiAgICAgICAgICByZXMuanNvbih7IG1lc3NhZ2U6ICdFcnJvci4gU3R1ZGVudCBuYW1lIGFuZCBudW1iZXIgZXhpc3RzJyB9KTtcclxuICAgICAgICAgfVxyXG4gICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgLy8gRGF0YSBkb2VzIG5vdCBleGlzdCBpbiB0aGUgY29sbGVjdGlvblxyXG4gICAgICAgICAgY29uc3Qgc3R1ZGVudENQRSA9IGF3YWl0IGRiLmNvbGxlY3Rpb24oY29sbGVjdGlvbk5hbWUpLmluc2VydE9uZSh7bmFtZSwgbnVtYmVyfSk7XHJcbiAgICAgICAgICByZXMuc3RhdHVzKDIwMCkuanNvbih7IGRhdGE6IHN0dWRlbnRDUEUsIG1lc3NhZ2U6ICdTdWNjZXNzZnVsbHkgYWRkZWQgbmV3IHN0dWRlbnQuJyB9KTtcclxuICAgICAgICB9XHJcbiAgICAgICBcclxuICAgICAgfSBicmVhaztcclxuICAgICAgY2FzZSAnREVMRVRFJzoge1xyXG4gICAgICAgIGNvbnN0IGRlbGV0ZUFsbCA9IHJlcS5xdWVyeS5kZWxldGVBbGxcclxuICAgICAgICBpZihkZWxldGVBbGwpe1xyXG4gICAgICAgICAgY29uc3QgcmVzdWx0ID0gYXdhaXQgZGIuY29sbGVjdGlvbihjb2xsZWN0aW9uTmFtZSkuZGVsZXRlTWFueSh7fSk7XHJcbiAgICAgICAgICBpZiAocmVzdWx0LmRlbGV0ZWRDb3VudCA+PSAxKSB7XHJcbiAgICAgICAgICAgIHJlcy5zdGF0dXMoMjAwKS5qc29uKHttZXNzYWdlOiBcIlN1Y2Nlc3NmdWxseSBkZWxldGVkIGFsbCBkb2N1bWVudC4gXCIgKyBkZWxldGVBbGx9KTtcclxuICAgICAgICAgIH0gZWxzZSB7XHJcbiAgICAgICAgICAgIHJlcy5zdGF0dXMoMjAwKS5qc29uKHttZXNzYWdlOiBcIk5vIERhdGEgdG8gZGVsZXRlLiBFbXB0eS5cIn0pO1xyXG4gICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgICAgICBlbHNlIGlmKCFkZWxldGVBbGwpe1xyXG4gICAgICAgICAgY29uc3Qgc3R1ZGVudElkID0gcmVxLmJvZHkuaWROdW1iZXI7IC8vIEFjY2VzcyBpZE51bWJlciBmcm9tIHRoZSByZXF1ZXN0IGJvZHlcclxuICAgICAgICAgIGNvbnN0IHF1ZXJ5ID0geyBpZDogc3R1ZGVudElkIH07IC8vaW4gdGhlIGRhdGFiYXNlIHdlIGhhdmU6IHtfaWQsIGlkLCBuYW1lLCBudW1iZXJ9Li4gd2Ugd2lsbCBxdWVyeSB0aGUgXCJpZFwiXHJcbiAgICAgICAgICBjb25zdCByZXN1bHQgPSBhd2FpdCBkYi5jb2xsZWN0aW9uKGNvbGxlY3Rpb25OYW1lKS5kZWxldGVPbmUocXVlcnkpO1xyXG4gICAgICAgICAgaWYgKHJlc3VsdC5kZWxldGVkQ291bnQgPT09IDEpIHtcclxuICAgICAgICAgICAgcmVzLnN0YXR1cygyMDApLmpzb24oe21lc3NhZ2U6IFwiU3VjY2Vzc2Z1bGx5IGRlbGV0ZWQgb25lIGRvY3VtZW50LiBcIiArIGRlbGV0ZUFsbH0pO1xyXG4gICAgICAgICAgfSBlbHNlIHtcclxuICAgICAgICAgICAgcmVzLnN0YXR1cygyMDApLmpzb24oe21lc3NhZ2U6IFwiTm8gRGF0YSB0byBkZWxldGUuIEVtcHR5LlwifSk7XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgIFxyXG4gICAgICAgIH1cclxuICAgICAgICBlbHNle1xyXG4gICAgICAgICAgcmVzLmpzb24oe21lc3NhZ2U6ICdDb25mdXNlZDogJyArIGRlbGV0ZUFsbH0pXHJcbiAgICAgICAgfVxyXG4gICAgICAgXHJcbiAgICAgIH0gYnJlYWs7XHJcbiAgICAgIGNhc2UgXCJQVVRcIjoge1xyXG4gICAgICAgIGNvbnN0IHsgbmFtZSwgbnVtYmVyLCBwcmV2TmFtZSwgcHJldk51bSB9ID0gcmVxLmJvZHk7IC8vdGhlIG9iamVjdCB0aGF0IHdlIHdpbGwgcHVzIGlzIHtuYW1lOiBcIlNOZGpuZmpuXCIsIG51bWJlcjogXCIzNDUzNFwifVxyXG4gICAgICAgIGNvbnN0IG5hbWVFeGlzdCA9IGF3YWl0IGRiLmNvbGxlY3Rpb24oY29sbGVjdGlvbk5hbWUpLmZpbmRPbmUoeyBuYW1lfSk7XHJcbiAgICAgICAgY29uc3QgbnVtRXhpc3QgPSBhd2FpdCBkYi5jb2xsZWN0aW9uKGNvbGxlY3Rpb25OYW1lKS5maW5kT25lKHtudW1iZXJ9KTtcclxuICAgICAgICBpZiAobmFtZUV4aXN0IT1wcmV2TmFtZSkge1xyXG4gICAgICAgICAgLy8gRGF0YSBleGlzdHMgaW4gdGhlIGNvbGxlY3Rpb25cclxuICAgICAgICAgIGNvbnNvbGUubG9nKG5hbWVFeGlzdCk7XHJcbiAgICAgICAgICByZXMuanNvbih7IG1lc3NhZ2U6ICdFcnJvci4gU3R1ZGVudCBuYW1lIGV4aXN0cycgfSk7XHJcbiAgICAgICAgfSBcclxuICAgICAgICBlbHNlIGlmKG51bUV4aXN0IT1wcmV2TnVtKXtcclxuICAgICAgICAgICAgLy8gRGF0YSBleGlzdHMgaW4gdGhlIGNvbGxlY3Rpb25cclxuICAgICAgICAgICAgY29uc29sZS5sb2coJ0RhdGEgZXhpc3RzOicpO1xyXG4gICAgICAgICAgICByZXMuanNvbih7IG1lc3NhZ2U6ICdFcnJvci4gU3R1ZGVudCBudW1iZXIgZXhpc3RzJyB9KTtcclxuICAgICAgICB9XHJcbiAgICAgICAgZWxzZSBpZihudW1FeGlzdCE9cHJldk51bSAmJiBuYW1lRXhpc3QhPXByZXZOYW1lKXtcclxuICAgICAgICAgIC8vIERhdGEgZXhpc3RzIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAgICAgICAgICBjb25zb2xlLmxvZygnRGF0YSBleGlzdHM6Jyk7XHJcbiAgICAgICAgICByZXMuanNvbih7IG1lc3NhZ2U6ICdFcnJvci4gU3R1ZGVudCBuYW1lIGFuZCBudW1iZXIgZXhpc3RzJyB9KTtcclxuICAgICAgICAgfVxyXG4gICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgLy8gRGF0YSBkb2VzIG5vdCBleGlzdCBpbiB0aGUgY29sbGVjdGlvblxyXG4gICAgICAgICAgY29uc3QgdXBkYXRlRGF0YSA9IHsgJHNldDogeyBuYW1lOiBuYW1lLCBpZE51bWJlcjogbnVtYmVyIH0gfTtcclxuICAgICAgICAgIGNvbnN0IHN0dWRlbnRDUEUgPSBhd2FpdCBkYi5jb2xsZWN0aW9uKGNvbGxlY3Rpb25OYW1lKS51cGRhdGVPbmUocXVlcnksIHVwZGF0ZURhdGEpO1xyXG4gICAgICAgICAgcmVzLnN0YXR1cygyMDApLmpzb24oeyBkYXRhOiBzdHVkZW50Q1BFLCBtZXNzYWdlOiAnU3VjY2Vzc2Z1bGx5IHVwZGF0ZWQgc3R1ZGVudCBkYXRhLicgfSk7XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcbiAgICAgIFxyXG4gICAgfVxyXG4gIH1cclxuICBjYXRjaCAoZSkge1xyXG4gICAgY29uc29sZS5lcnJvcihlKTtcclxuICB9XHJcbiAgXHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuIl0sIm5hbWVzIjpbImNsaWVudFByb21pc2UiLCJoYW5kbGVyIiwicmVxIiwicmVzIiwiY2xpZW50IiwiZGIiLCJjb2xsZWN0aW9uTmFtZSIsInF1ZXJ5IiwiY29sbGVjdGlvbiIsIm1ldGhvZCIsInN0dWRlbnRDUEUiLCJmaW5kIiwic29ydCIsIm1ldGFjcml0aWMiLCJsaW1pdCIsInRvQXJyYXkiLCJzdGF0dXMiLCJqc29uIiwibmFtZSIsIm51bWJlciIsImJvZHkiLCJuYW1lRXhpc3QiLCJmaW5kT25lIiwibnVtRXhpc3QiLCJjb25zb2xlIiwibG9nIiwibWVzc2FnZSIsImluc2VydE9uZSIsImRhdGEiLCJkZWxldGVBbGwiLCJyZXN1bHQiLCJkZWxldGVNYW55IiwiZGVsZXRlZENvdW50Iiwic3R1ZGVudElkIiwiaWROdW1iZXIiLCJpZCIsImRlbGV0ZU9uZSIsInByZXZOYW1lIiwicHJldk51bSIsInVwZGF0ZURhdGEiLCIkc2V0IiwidXBkYXRlT25lIiwiZSIsImVycm9yIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./pages/api/studentdb.js\n");
 
 /***/ })
 
@@ -147,7 +50,7 @@ async function handler(req, res) {
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(7415));
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/studentdb.js"));
 module.exports = __webpack_exports__;
 
 })();

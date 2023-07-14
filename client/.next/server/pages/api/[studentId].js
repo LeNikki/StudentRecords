@@ -1,79 +1,35 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 837;
-exports.ids = [837];
+exports.id = "pages/api/[studentId]";
+exports.ids = ["pages/api/[studentId]"];
 exports.modules = {
 
-/***/ 7708:
+/***/ "(api)/./pages/api/[studentId].js":
+/*!**********************************!*\
+  !*** ./pages/api/[studentId].js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"(api)/./pages/api/index.js\");\n//fetch api\n\n//\nfunction handler(res, req) {\n    const [studentId] = req.query //query\n    ;\n    const student = (0,_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"])() //object data {stud:data all students}\n    ;\n    const index = student.find((stud)=>stud.id === parseInt(studentId));\n    if (req.method === \"DELETE\") {\n        student.splice(index, 1);\n        res.status(202).json(index);\n    } else if (req.method === \"PUT\") {\n        const index = student.find((stud)=>stud.id === parseInt(studentId));\n        const data = req.body;\n        if (!index) {\n            res.status(404).json({\n                message: \"Student not found.\"\n            });\n            throw new Error(\"'Student not found.'\");\n        }\n        student[index] = data;\n        res.status(202).json(data) //return status and the data pushed \n        ;\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvW3N0dWRlbnRJZF0uanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxXQUFXO0FBQ3lCO0FBRXBDLEVBQUU7QUFDYSxTQUFTQyxRQUFTQyxHQUFHLEVBQUNDLEdBQUcsRUFBQztJQUNyQyxNQUFNLENBQUNDLFVBQVUsR0FBR0QsSUFBSUUsS0FBSyxDQUFDLE9BQU87O0lBQ3JDLE1BQU1DLFVBQVVOLGtEQUFjQSxHQUFHLHNDQUFzQzs7SUFFdEUsTUFBTU8sUUFBUUQsUUFBUUUsSUFBSSxDQUFDQyxDQUFBQSxPQUFRQSxLQUFLQyxFQUFFLEtBQUtDLFNBQVNQO0lBQ3pELElBQUlELElBQUlTLE1BQU0sS0FBSyxVQUFTO1FBRXhCTixRQUFRTyxNQUFNLENBQUNOLE9BQU87UUFDdEJMLElBQUlZLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUNSO0lBQ3pCLE9BQ0ssSUFBSUosSUFBSVMsTUFBTSxLQUFLLE9BQU07UUFDNUIsTUFBTUwsUUFBUUQsUUFBUUUsSUFBSSxDQUFDQyxDQUFBQSxPQUFRQSxLQUFLQyxFQUFFLEtBQUtDLFNBQVNQO1FBQ3hELE1BQU1ZLE9BQU9iLElBQUljLElBQUk7UUFFckIsSUFBSSxDQUFDVixPQUFPO1lBQ1ZMLElBQUlZLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7Z0JBQUVHLFNBQVM7WUFBcUI7WUFDckQsTUFBTSxJQUFJQyxNQUFNLHdCQUF1QjtRQUN6QyxDQUFDO1FBQ0RiLE9BQU8sQ0FBQ0MsTUFBTSxHQUFDUztRQUNmZCxJQUFJWSxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDQyxNQUFPLG9DQUFvQzs7SUFFbEUsQ0FBQztBQUVMLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHVkZW50LWluLy4vcGFnZXMvYXBpL1tzdHVkZW50SWRdLmpzPzJmMGMiXSwic291cmNlc0NvbnRlbnQiOlsiLy9mZXRjaCBhcGlcclxuaW1wb3J0IGdldFN0dWRlbnREYXRhIGZyb20gXCIuL2luZGV4XCJcclxuXHJcbi8vXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGhhbmRsZXIgKHJlcyxyZXEpe1xyXG4gICAgY29uc3QgW3N0dWRlbnRJZF0gPSByZXEucXVlcnkgLy9xdWVyeVxyXG4gICAgY29uc3Qgc3R1ZGVudCA9IGdldFN0dWRlbnREYXRhKCkgLy9vYmplY3QgZGF0YSB7c3R1ZDpkYXRhIGFsbCBzdHVkZW50c31cclxuICAgXHJcbiAgICAgY29uc3QgaW5kZXggPSBzdHVkZW50LmZpbmQoc3R1ZCA9PiBzdHVkLmlkID09PSBwYXJzZUludChzdHVkZW50SWQpKVxyXG4gICAgaWYgKHJlcS5tZXRob2QgPT09IFwiREVMRVRFXCIpe1xyXG4gICAgICAgXHJcbiAgICAgICAgc3R1ZGVudC5zcGxpY2UoaW5kZXgsIDEpXHJcbiAgICAgICAgcmVzLnN0YXR1cygyMDIpLmpzb24oaW5kZXgpXHJcbiAgICB9XHJcbiAgICBlbHNlIGlmIChyZXEubWV0aG9kID09PSBcIlBVVFwiKXtcclxuICAgICAgY29uc3QgaW5kZXggPSBzdHVkZW50LmZpbmQoc3R1ZCA9PiBzdHVkLmlkID09PSBwYXJzZUludChzdHVkZW50SWQpKVxyXG4gICAgICBjb25zdCBkYXRhID0gcmVxLmJvZHlcclxuICAgIFxyXG4gICAgICBpZiAoIWluZGV4KSB7XHJcbiAgICAgICAgcmVzLnN0YXR1cyg0MDQpLmpzb24oeyBtZXNzYWdlOiAnU3R1ZGVudCBub3QgZm91bmQuJyB9KTtcclxuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoXCInU3R1ZGVudCBub3QgZm91bmQuJ1wiKVxyXG4gICAgICB9XHJcbiAgICAgIHN0dWRlbnRbaW5kZXhdPWRhdGFcclxuICAgICAgcmVzLnN0YXR1cygyMDIpLmpzb24oZGF0YSkgIC8vcmV0dXJuIHN0YXR1cyBhbmQgdGhlIGRhdGEgcHVzaGVkIFxyXG4gICAgICBcclxuICAgIH1cclxuICAgIFxyXG59XHJcblxyXG4iXSwibmFtZXMiOlsiZ2V0U3R1ZGVudERhdGEiLCJoYW5kbGVyIiwicmVzIiwicmVxIiwic3R1ZGVudElkIiwicXVlcnkiLCJzdHVkZW50IiwiaW5kZXgiLCJmaW5kIiwic3R1ZCIsImlkIiwicGFyc2VJbnQiLCJtZXRob2QiLCJzcGxpY2UiLCJzdGF0dXMiLCJqc29uIiwiZGF0YSIsImJvZHkiLCJtZXNzYWdlIiwiRXJyb3IiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./pages/api/[studentId].js\n");
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ _studentId_handler)
-});
+/***/ }),
 
-;// CONCATENATED MODULE: ./pages/api/index.js
-//fetch api
-async function getStudentData() {
-    const res = await fetch("http://localhost:8000/students");
-    const data = await res.json();
-    return {
-        stud: data
-    };
-}
-//handle API requests
-function handler(res, req) {
-    const stud = getStudentData();
-    const student = stud.stud;
-    if (req.method === "GET") {
-        res.status(200).json(student);
-    } else if (req.method === "POST") {
-        const data = req.body //get the body of the request
-        ;
-        const index = student.find((takenVal)=>takenVal.number == data.number);
-        if (!index) {
-            student.push(data) //push it to database
-            ;
-            res.status(201).json(data) //return status and the data pushed
-            ;
-        } else {
-            throw new Error("Student already Exists");
-        }
-    }
-}
+/***/ "(api)/./pages/api/index.js":
+/*!****************************!*\
+  !*** ./pages/api/index.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-;// CONCATENATED MODULE: ./pages/api/[studentId].js
-//fetch api
-
-//
-function _studentId_handler(res, req) {
-    const [studentId] = req.query //query
-    ;
-    const student = handler() //object data {stud:data all students}
-    ;
-    const index = student.find((stud)=>stud.id === parseInt(studentId));
-    if (req.method === "DELETE") {
-        student.splice(index, 1);
-        res.status(202).json(index);
-    } else if (req.method === "PUT") {
-        const index = student.find((stud)=>stud.id === parseInt(studentId));
-        const data = req.body;
-        if (!index) {
-            res.status(404).json({
-                message: "Student not found."
-            });
-            throw new Error("'Student not found.'");
-        }
-        student[index] = data;
-        res.status(202).json(data) //return status and the data pushed 
-        ;
-    }
-}
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler),\n/* harmony export */   \"getStudentData\": () => (/* binding */ getStudentData)\n/* harmony export */ });\n//fetch api\nasync function getStudentData() {\n    const res = await fetch(\"http://localhost:8000/students\");\n    const data = await res.json();\n    return {\n        stud: data\n    };\n}\n//handle API requests\nfunction handler(res, req) {\n    const stud = getStudentData();\n    const student = stud.stud;\n    if (req.method === \"GET\") {\n        res.status(200).json(student);\n    } else if (req.method === \"POST\") {\n        const data = req.body //get the body of the request\n        ;\n        const index = student.find((takenVal)=>takenVal.number == data.number);\n        if (!index) {\n            student.push(data) //push it to database\n            ;\n            res.status(201).json(data) //return status and the data pushed\n            ;\n        } else {\n            throw new Error(\"Student already Exists\");\n        }\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvaW5kZXguanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxXQUFXO0FBQ0osZUFBZUEsaUJBQWdCO0lBQ2xDLE1BQU1DLE1BQU0sTUFBTUMsTUFBTTtJQUN4QixNQUFNQyxPQUFPLE1BQU1GLElBQUlHLElBQUk7SUFFM0IsT0FBTztRQUFDQyxNQUFLRjtJQUFJO0FBQ3JCLENBQUM7QUFFRCxxQkFBcUI7QUFDTixTQUFTRyxRQUFTTCxHQUFHLEVBQUNNLEdBQUcsRUFBQztJQUNyQyxNQUFNRixPQUFPTDtJQUNiLE1BQU1RLFVBQVVILEtBQUtBLElBQUk7SUFFekIsSUFBSUUsSUFBSUUsTUFBTSxLQUFJLE9BQU07UUFDcEJSLElBQUlTLE1BQU0sQ0FBQyxLQUFLTixJQUFJLENBQUNJO0lBQ3pCLE9BQ0ssSUFBSUQsSUFBSUUsTUFBTSxLQUFLLFFBQU87UUFDM0IsTUFBTU4sT0FBT0ksSUFBSUksSUFBSSxDQUFDLDZCQUE2Qjs7UUFDbkQsTUFBTUMsUUFBUUosUUFBUUssSUFBSSxDQUFDQyxDQUFBQSxXQUFVQSxTQUFTQyxNQUFNLElBQUlaLEtBQUtZLE1BQU07UUFDbkUsSUFBRyxDQUFDSCxPQUFNO1lBQ05KLFFBQVFRLElBQUksQ0FBQ2IsTUFBTSxxQkFBcUI7O1lBQ3hDRixJQUFJUyxNQUFNLENBQUMsS0FBS04sSUFBSSxDQUFDRCxNQUFPLG1DQUFtQzs7UUFFbkUsT0FDSTtZQUNBLE1BQU0sSUFBSWMsTUFBTSwwQkFBeUI7UUFDN0MsQ0FBQztJQUVMLENBQUM7QUFFTCxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3R1ZGVudC1pbi8uL3BhZ2VzL2FwaS9pbmRleC5qcz9jNWZmIl0sInNvdXJjZXNDb250ZW50IjpbIi8vZmV0Y2ggYXBpXHJcbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZXRTdHVkZW50RGF0YSgpe1xyXG4gICAgY29uc3QgcmVzID0gYXdhaXQgZmV0Y2goXCJodHRwOi8vbG9jYWxob3N0OjgwMDAvc3R1ZGVudHNcIilcclxuICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpXHJcblxyXG4gICAgcmV0dXJuIHtzdHVkOmRhdGF9XHJcbn1cclxuXHJcbi8vaGFuZGxlIEFQSSByZXF1ZXN0c1xyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBoYW5kbGVyIChyZXMscmVxKXtcclxuICAgIGNvbnN0IHN0dWQgPSBnZXRTdHVkZW50RGF0YSgpXHJcbiAgICBjb25zdCBzdHVkZW50ID0gc3R1ZC5zdHVkXHJcblxyXG4gICAgaWYgKHJlcS5tZXRob2QgPT09XCJHRVRcIil7XHJcbiAgICAgICAgcmVzLnN0YXR1cygyMDApLmpzb24oc3R1ZGVudClcclxuICAgIH1cclxuICAgIGVsc2UgaWYgKHJlcS5tZXRob2QgPT09IFwiUE9TVFwiKXtcclxuICAgICAgICBjb25zdCBkYXRhID0gcmVxLmJvZHkgLy9nZXQgdGhlIGJvZHkgb2YgdGhlIHJlcXVlc3RcclxuICAgICAgICBjb25zdCBpbmRleCA9IHN0dWRlbnQuZmluZCh0YWtlblZhbD0+dGFrZW5WYWwubnVtYmVyID09IGRhdGEubnVtYmVyKVxyXG4gICAgICAgIGlmKCFpbmRleCl7XHJcbiAgICAgICAgICAgIHN0dWRlbnQucHVzaChkYXRhKSAvL3B1c2ggaXQgdG8gZGF0YWJhc2VcclxuICAgICAgICAgICAgcmVzLnN0YXR1cygyMDEpLmpzb24oZGF0YSkgIC8vcmV0dXJuIHN0YXR1cyBhbmQgdGhlIGRhdGEgcHVzaGVkXHJcbiAgICAgICAgICAgIFxyXG4gICAgICAgIH1cclxuICAgICAgICBlbHNle1xyXG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoXCJTdHVkZW50IGFscmVhZHkgRXhpc3RzXCIpXHJcbiAgICAgICAgfVxyXG4gICAgICAgIFxyXG4gICAgfVxyXG4gICAgXHJcbn0iXSwibmFtZXMiOlsiZ2V0U3R1ZGVudERhdGEiLCJyZXMiLCJmZXRjaCIsImRhdGEiLCJqc29uIiwic3R1ZCIsImhhbmRsZXIiLCJyZXEiLCJzdHVkZW50IiwibWV0aG9kIiwic3RhdHVzIiwiYm9keSIsImluZGV4IiwiZmluZCIsInRha2VuVmFsIiwibnVtYmVyIiwicHVzaCIsIkVycm9yIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./pages/api/index.js\n");
 
 /***/ })
 
@@ -84,7 +40,7 @@ function _studentId_handler(res, req) {
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(7708));
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/[studentId].js"));
 module.exports = __webpack_exports__;
 
 })();
