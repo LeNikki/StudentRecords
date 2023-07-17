@@ -106,7 +106,7 @@ export default function ListOfStudents({studentCpE}) {
                 <p className=' p-1 md:p-3 w-1/2 col-span-1'>{stud.number}</p>
                 <section className='flex flex-row  md:ml-2 md:col-span-1'>
                 { /*studentInfo is an object that holds id, name and num, you should destructure it when passing*/}
-                    <button className='bg-yellow-400 ml-0 p-1 md:p-3 md:w-40  ml-2 hover:bg-yellow-700' onClick={()=>getStud(stud)}> <Link href="./updateData">Edit</Link></button>
+                <Link href="./updateData"><button className='bg-yellow-400 ml-0 p-1 md:p-3 md:w-40  ml-2 hover:bg-yellow-700' onClick={()=>getStud(stud)}> Edit</button></Link>
                     <button className='bg-red-600  p-1 md:p-3 ml-0 md:w-40  ml-2 hover:bg-green-600' onClick = {()=>DeleteData(stud.id)}>Delete</button>
                 </section>                
             </section> )
@@ -123,41 +123,7 @@ export default function ListOfStudents({studentCpE}) {
   )
 }
 
-//get server side props to be able to load data at runtime, useful if there are changes in dataset
-//React needs to have all the required data before the page is rendered.
-//allows dynamic load for constantly changing data
-//THIS IS FOR server-json
-// export async function getServerSideProps(){
-//     const res = await fetch("http://localhost:8000/students") //server
-//     const data = await res.json()
 
-//     return{
-//         props:{
-//             studentProp: data
-//         }
-//     }
-// }
-
-//this is for mongodb: using getserverside props for rendering
-/*export async function getServerSideProps(){
-    
-        const client = await clientPromise;
-        const studentCPE_db = client.db("StudentsDb"); //name of db in mongodb
-
-        const studentCPE = await studentCPE_db 
-            .collection("StudentsCollection")
-            .find({})
-            .sort({ metacritic: -1 })
-            .limit(20)
-            .toArray();
-            
-        return {
-                props: { studentCpE: JSON.parse(JSON.stringify(studentCPE)) },
-        };
-   
-}*/
-
-//or for calling our mongodb api
 export async function getServerSideProps(){
     let collectionName = "English"; //we will send this as req.query.collection 
     const res = await fetch (`http://localhost:3000/api/studentdb?collection=${collectionName}`, { 

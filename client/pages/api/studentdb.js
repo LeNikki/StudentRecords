@@ -68,29 +68,28 @@ export default async function handler (req, res) {
        
       } break;
       case "PUT": {
-        const { name, number, prevName, prevNum } = req.body; //the object that we will pus is {name: "SNdjnfjn", number: "34534"}
-        const nameExist = await db.collection(collectionName).findOne({ name});
-        const numExist = await db.collection(collectionName).findOne({number});
-        if (nameExist!=prevName) {
-          // Data exists in the collection
-          console.log(nameExist);
-          res.json({ message: 'Error. Student name exists' });
-        } 
-        else if(numExist!=prevNum){
-            // Data exists in the collection
-            console.log('Data exists:');
-            res.json({ message: 'Error. Student number exists' });
-        }
-        else if(numExist!=prevNum && nameExist!=prevName){
+        const { name, number, prevName, prevNum } = req.body;
+        
+        const query = { $or: [{ name: name }, { number: number }] };
+        const existingStudent = await db.collection(collectionName).findOne(query);
+        
+        if (existingStudent && (existingStudent.name !== prevName || existingStudent.number !== prevNum)) {
           // Data exists in the collection
           console.log('Data exists:');
-          res.json({ message: 'Error. Student name and number exists' });
-         }
-        else {
-          // Data does not exist in the collection
-          const updateData = { $set: { name: name, idNumber: number } };
-          const studentCPE = await db.collection(collectionName).updateOne(query, updateData);
-          res.status(200).json({ data: studentCPE, message: 'Successfully updated student data.' });
+          res.json({ message: 'Error. Student name and number exist' });
+        } else {
+          // Data does not exist in the collection or remains unchanged
+          const filter = { name: prevName, number: prevNum };
+          const updateData = { $set: { name, idNumber: number } };
+          const studentCPE = await db.collection(collectionName).updateOne(filter, updateData);
+          
+          if (studentCPE.matchedCount === 0) {
+            // No matching document found to update
+            res.json({ message: 'Error. Student data not found' });
+          } else {
+            // Data updated successfully
+            res.status(200).json({ data: studentCPE, message: 'Successfully updated student data.' });
+          }
         }
       }
       
