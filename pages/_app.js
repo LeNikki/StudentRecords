@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+<<<<<<< HEAD
 import { Poppins } from 'next/font/google'
 
 const poppins = Poppins ({
@@ -12,4 +13,9 @@ export default function App({ Component, pageProps }) {
     </main>
   )
  
+=======
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
+>>>>>>> a94b7533ebf6d76e902996129af00b63a887c4d9
 }
