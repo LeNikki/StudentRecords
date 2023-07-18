@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 {
   "extends": [
@@ -6,8 +5,4 @@
     "plugin:react-hooks/recommended",
     "next/core-web-vitals"
   ]
-=======
-{
-  "extends": "next/core-web-vitals"
->>>>>>> a94b7533ebf6d76e902996129af00b63a887c4d9
 }
