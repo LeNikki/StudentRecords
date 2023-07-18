@@ -76,7 +76,7 @@ export default function ListOfStudents({studentCpE}) {
             <section className='w-10 h-10 pt-2'>
             <Image
               src= {search_ic}
-              
+              alt="search icon"
             /></section>
              </section>
         </section>

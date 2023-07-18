@@ -54,6 +54,7 @@ export default function Home() {
         width={40}
         height ={40}
         className='text-rose-400 '
+        alt = "plus"
        />
           </section>
           </ul>

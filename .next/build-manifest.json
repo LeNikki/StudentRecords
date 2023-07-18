@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/hoAWUYeWbyvayTQfQYuPD/_buildManifest.js",
-    "static/hoAWUYeWbyvayTQfQYuPD/_ssgManifest.js"
+    "static/QwVlEEu6_nXDMAx2dubUi/_buildManifest.js",
+    "static/QwVlEEu6_nXDMAx2dubUi/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -16,7 +16,7 @@
       "static/chunks/main-4dcb7f9b52833aba.js",
       "static/chunks/664-8af8765c6fed5950.js",
       "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/index-a9c677ce62f910b7.js"
+      "static/chunks/pages/index-3c77ebd168369c3d.js"
     ],
     "/400": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
@@ -31,7 +31,7 @@
       "static/chunks/main-4dcb7f9b52833aba.js",
       "static/chunks/664-8af8765c6fed5950.js",
       "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/AddNew-7bf584d32ead2aa3.js"
+      "static/chunks/pages/AddNew-fa6ae0e345a32450.js"
     ],
     "/ListOfStudents": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
@@ -39,7 +39,7 @@
       "static/chunks/main-4dcb7f9b52833aba.js",
       "static/chunks/664-8af8765c6fed5950.js",
       "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/ListOfStudents-f119018b5bfd051c.js"
+      "static/chunks/pages/ListOfStudents-62ee59b8ac357a05.js"
     ],
     "/UpdateData": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
@@ -47,7 +47,7 @@
       "static/chunks/main-4dcb7f9b52833aba.js",
       "static/chunks/664-8af8765c6fed5950.js",
       "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/UpdateData-b8761ac312d91393.js"
+      "static/chunks/pages/UpdateData-ed06df9ab802268b.js"
     ],
     "/_app": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
