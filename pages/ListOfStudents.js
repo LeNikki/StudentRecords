@@ -6,8 +6,6 @@ import { useState } from 'react'
 import search_ic from "../public/search_ic.png"
 import trash from "../public/trash.png"
 import Image from "next/image"
-//import clientPromise from "../lib/mongodb";
-//import { getServerSideProps } from './addNew'
 
 export let prevInfo ={}
 export default function ListOfStudents({studentCpE}) {
