@@ -1,7 +1,6 @@
 {
   "students": [
     {
-<<<<<<< HEAD
       "id": 1684492048519,
       "name": " Erica",
       "number": "1234"
@@ -110,36 +109,6 @@
       "id": 1685244892727,
       "name": "hanna",
       "number": "444333"
-=======
-      "id": 1683982752574,
-      "name": " fghfghtyu",
-      "number": "056757"
-    },
-    {
-      "id": 1683983725437,
-      "name": "Elsa",
-      "number": "0567645657"
-    },
-    {
-      "id": 1683983787885,
-      "name": " Mary Isabelle",
-      "number": "567"
-    },
-    {
-      "id": 1683984309500,
-      "name": " Mary Isabelle",
-      "number": "567"
-    },
-    {
-      "id": 1683984357012,
-      "name": " AAntofg",
-      "number": "567"
-    },
-    {
-      "id": 1683984438613,
-      "name": " yhjgh",
-      "number": "567"
->>>>>>> a94b7533ebf6d76e902996129af00b63a887c4d9
     }
   ]
 }
