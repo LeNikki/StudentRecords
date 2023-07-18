@@ -5,8 +5,8 @@ export const siteTitle = "Student Information"
 export default function layout({children}) {
     const navigations = [
         {id: 1, nav: "Home", directory: "/"},
-        {id: 2, nav: "Students", directory:"/listOfStudents"},
-        {id: 3, nav: "Add New", directory:"/addNew"}
+        {id: 2, nav: "Students", directory:"/ListOfStudents"},
+        {id: 3, nav: "Add New", directory:"/AddNew"}
 
     ]
     return (

@@ -1,10 +1,6 @@
 self.__NEXT_FONT_MANIFEST={
-  "pages": {
-    "/_app": [
-      "static/media/c04551857776278f-s.p.woff2"
-    ]
-  },
+  "pages": {},
   "app": {},
   "appUsingSizeAdjust": false,
-  "pagesUsingSizeAdjust": true
+  "pagesUsingSizeAdjust": false
 }

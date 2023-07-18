@@ -2,9 +2,8 @@ import React from 'react'
 import Layout from "../components/layout"
 import Head from "next/head"
 import { useState } from 'react'
-import clientPromise from '@/lib/mongodb'
-import {prevInfo} from "./listOfStudents"
-export default function UpdateData({studentCpE}) {
+import {prevInfo} from "./ListOfStudents"
+export default function UpdateData() {
   //This is the PUT request to update data
  const [studInfo, setstudInfo] = useState({name: prevInfo.name, num: prevInfo.number});
 
@@ -87,23 +86,6 @@ const clear=()=>{
     </Layout>
   )
 }
-
-export const getServerSideProps = async () => {
-  const client = await clientPromise;
-  const studentCPE_db = client.db("StudentsDb");
-
-  const studentCPE = await studentCPE_db
-    .collection("StudentsCollection")
-    .find({})
-    .sort({ metacritic: -1 })
-    .limit(20)
-    .toArray();
-
-  return {
-    props: { studentCpE: JSON.parse(JSON.stringify(studentCPE)) },
-  };
-};
-
 
 
 

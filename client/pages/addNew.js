@@ -19,6 +19,7 @@ export default function AddNew({studentCpE}) {
     const data = res.json()
     setstudent(data);
 }
+
   function setName(e){
     setstudInfo(prev=>({
       ...prev,
@@ -82,7 +83,7 @@ export default function AddNew({studentCpE}) {
             /></section>
              </section>
         </section>
-        <form action ="/addNew" method = "POST" className=' flex flex-col'>
+        <form action ="/AddNew" method = "POST" className=' flex flex-col'>
         
            <fieldset className='flex flex-row my-2'>
            <label  className='font-semibold py-2 px-3 w-60 '>Please enter name: </label>
