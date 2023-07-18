@@ -33,3 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node
+
+# Ignored files and directories
+node_modules/
+.DS_Store
+next-swc.win32-x64-msvc.node
