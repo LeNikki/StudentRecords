@@ -5,6 +5,7 @@ import headerClass from "../public/headerClass.png"
 import classroom from "../public/classroom.png"
 import plus from "../public/plus.png"
 export let subjectName = "English"
+import React from 'react'
 let subjects = ["English", "EmergingTech"];
 export default function Home() {
   

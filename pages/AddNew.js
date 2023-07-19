@@ -1,14 +1,13 @@
 import React from 'react'
 import Layout from "../components/layout"
 import Head from "next/head"
-import { useState,  } from 'react'
+import { useState  } from 'react'
 import search_ic from "../public/search_ic.png"
 import Image from "next/image"
 
 
 export default function AddNew({studentCpE}) {
   const [studInfo, setstudInfo] = useState({name:" ", num: 0}); //inputs
-  const [student, setstudent] = useState(studentCpE); //studentList from server-json
   let collectionName = "English"; 
   //loads new set of data
   async function GetData(){

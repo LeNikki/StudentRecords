@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/QwVlEEu6_nXDMAx2dubUi/_buildManifest.js",
-    "static/QwVlEEu6_nXDMAx2dubUi/_ssgManifest.js"
+    "static/fBTTZ-gGrsER3_0WMa3Bg/_buildManifest.js",
+    "static/fBTTZ-gGrsER3_0WMa3Bg/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -14,40 +14,29 @@
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-cda2f1305c3d9424.js",
       "static/chunks/main-4dcb7f9b52833aba.js",
-      "static/chunks/664-8af8765c6fed5950.js",
-      "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/index-3c77ebd168369c3d.js"
-    ],
-    "/400": [
-      "static/chunks/webpack-8fa1640cc84ba8fe.js",
-      "static/chunks/framework-cda2f1305c3d9424.js",
-      "static/chunks/main-4dcb7f9b52833aba.js",
-      "static/chunks/664-8af8765c6fed5950.js",
-      "static/chunks/pages/400-3336658c028f53af.js"
+      "static/chunks/247-9eba565e8bb36360.js",
+      "static/chunks/pages/index-b779335f74a6c5ea.js"
     ],
     "/AddNew": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-cda2f1305c3d9424.js",
       "static/chunks/main-4dcb7f9b52833aba.js",
-      "static/chunks/664-8af8765c6fed5950.js",
-      "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/AddNew-fa6ae0e345a32450.js"
+      "static/chunks/247-9eba565e8bb36360.js",
+      "static/chunks/pages/AddNew-1994cbc39dde6278.js"
     ],
     "/ListOfStudents": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-cda2f1305c3d9424.js",
       "static/chunks/main-4dcb7f9b52833aba.js",
-      "static/chunks/664-8af8765c6fed5950.js",
-      "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/ListOfStudents-62ee59b8ac357a05.js"
+      "static/chunks/247-9eba565e8bb36360.js",
+      "static/chunks/pages/ListOfStudents-4e3eeae9281538e3.js"
     ],
     "/UpdateData": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-cda2f1305c3d9424.js",
       "static/chunks/main-4dcb7f9b52833aba.js",
-      "static/chunks/664-8af8765c6fed5950.js",
-      "static/chunks/959-1a366e6396824da8.js",
-      "static/chunks/pages/UpdateData-ed06df9ab802268b.js"
+      "static/chunks/247-9eba565e8bb36360.js",
+      "static/chunks/pages/UpdateData-b70901606a3b0b07.js"
     ],
     "/_app": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
