@@ -1,4 +1,5 @@
 {
+  "homepage": "https://lenikki.github.io/student-in",
   "name": "student-in",
   "version": "0.1.0",
   "private": true,
@@ -7,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server-json": "json-server --watch student.json --port 8000"
+    "server-json": "json-server --watch student.json --port 8000",
+    "deploy": "next build && gh-pages -d out"
   },
   "dependencies": {
     "@next/font": "^13.4.10",
@@ -26,6 +28,7 @@
   "devDependencies": {
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^5.0.0",
     "mongodb": "^5.6.0",
     "mongodb-core": "^3.2.7"
   }
