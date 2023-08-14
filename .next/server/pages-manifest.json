@@ -5,7 +5,7 @@
   "/UpdateData": "pages/UpdateData.html",
   "/api/studentdb": "pages/api/studentdb.js",
   "/": "pages/index.html",
-  "/ListOfStudents": "pages/ListOfStudents.js",
   "/AddNew": "pages/AddNew.js",
+  "/ListOfStudents": "pages/ListOfStudents.js",
   "/404": "pages/404.html"
 }
